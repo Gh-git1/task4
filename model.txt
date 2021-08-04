@@ -1,0 +1,3 @@
+Models: https://cloud.ibm.com/docs/speech-to-text?topic=speech-to-text-models
+APIKEY: StSOcNkx-8czkMZL8W9l-JQWdGBqENHeHwJYtPgr_C6G
+Region:au-syd
