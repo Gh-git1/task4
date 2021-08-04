@@ -1,0 +1,14 @@
+!pip install ibm_watson
+apikey = 'pUEfzxctHyooWVHC8aTB_05sv1J6NpufCwzrLr_dxtLJ'
+url = 'https://api.eu-gb.text-to-speech.watson.cloud.ibm.com/instances/bbecb1b1-7661-4455-8c53-47be6fac3580'
+from ibm_watson import TextToSpeechV1
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+# Set Service
+authenticator = IAMAuthenticator(apikey)
+# New TTS Service
+tts = TextToSpeechV1(authenticator=authenticator)
+# Set Service URL
+tts.set_service_url(url)
+with open('./speech.mp3', 'wb') as audio_file:
+  res = tts.synthesize(' Hello World!,Iam very Happy', accept='audio/mp3', voice='en-US_AllisonV3Voice').get_result()
+  audio_file.write(res.content)
